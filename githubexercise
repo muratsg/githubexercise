@@ -1,0 +1,5 @@
+1. git init
+   git remote add origin git@github.com:muratsg/githubexercise.git
+   git push origin master
+2.git checkout -b <localbranch>
+  git push -u origin <localbranch>
