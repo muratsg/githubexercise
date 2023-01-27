@@ -1,0 +1,118 @@
+document.getElementById('user-inputs').addEventListener('submit', function(event) {
+    const imageUrl = document.getElementById('image-url').value
+    const textTop = document.getElementById('text-on-top').value
+    const textBottom = document.getElementById('text-on-bottom').value
+    
+    const memes = document.getElementById('memes')
+    const meme = document.createElement('div')
+    meme.innerHTML = `<span class="top">${textTop}</span><img src="${imageUrl}"/><span class="bottom">${textBottom}</span>`
+    memes.appendChild(meme)
+    event.preventDefault()
+})
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Meme Generator</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="controls">
+            <h1>I CAN HAZ MEMEZ?</h1>
+            <h5>Fill out the form to start creating memes!</h5>
+            <form id="user-inputs" action="#">
+                <div>
+                    <label for="image-url">Image URL</label>
+                    <input type="url" id="image-url" name="image-url" />
+                </div>
+                <div>
+                    <label for="text-on-top">Text On Top</label>
+                    <input type="text" id="text-on-top" name="text-on-top">
+                </div>
+                <div>
+                    <label for="text-on-bottom">Text On Bottom</label>
+                    <input type="text" id="text-on-bottom" name="text-on-bottom">
+                </div>
+                <div>
+                    <input type="submit" value="Add Meme">
+                </div>
+            </form>
+        </div>
+        <div id="memes">
+        </div>
+        <script src="code.js"></script>
+    </body>
+</html>
+html {
+    padding: 0;
+    margin: 0;
+}
+body {
+    padding: 0;
+    margin: 0;
+}
+div#controls {
+    background-color: gainsboro;
+    padding: 50px;
+    margin: 0;
+}
+div#controls > h1 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+div#controls > h5 {
+    padding: 0;
+    margin: 10px auto;
+    text-align: center;
+}
+div#controls label {
+    width: 100%;
+    display: inline-block;
+    margin: 10px;
+    font-size: larger;
+    text-align: center;
+}
+div#controls input[type=text],
+div#controls input[type=url] {
+    width: 100%;
+}
+div#controls input[type=submit] {
+    padding: 10px;
+    margin: 10px 0;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    float: right;
+}
+#memes > div {
+    margin: 10px;
+    position: relative;
+    display: inline-block;
+}
+#memes > div > img {
+    max-width: 500px;
+}
+#memes > div > span.top {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bolder;
+    color: white;
+    text-shadow: 0 0 3px black;
+    top: 0;
+    line-height: normal;
+}
+#memes > div > span.bottom {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bolder;
+    color: white;
+    text-shadow: 0 0 3px black;
+    bottom: 0;
+    line-height: normal;
+}
